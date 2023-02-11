@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Avram Baicu's lab</title>
-  </head>
-  <body>
-    <div>
-      <h1>Avram's Labs For INST377</h1>
-      <h2>Album Names</h2>
-      <ol>
-        <li>Yeah Yeah Yeahs - Fever To Tell</li>
-        <li>Underworld - Dubnobasswithmyheadman</li>
-        <li>Young Fathers - Cocoa Butter</li>
-        <li>Sleigh Bells - Treats</li>
-        <li>Hansome Furs - Face Control</li>
-      </ol>
-    </div>
 
-    <div>
-      <h2>Image Carousel</h2>
-      <img src="./images/mochi.gif" alt="mochi gif" >
-      <img src="./images/mochi.jpg" alt="mochi jpeg picture" >
-      <img src="./images/mochi.png" alt="mochi png" >
-      <img src="./images/mochi.svg" alt="mochi svg" >
-      <p>There are four type of files. Gif, jpg, png, and svg.</p>
-      <p>AvramBaicu <a href="https://github.com/AvramBaicu">link</a></p>
-      <!--not sure if that's what you're looking for in lines 
-        28 and 29 please don't take off points :)-->
-    </div>
-  </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Avram Baicu's lab</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--wrapper -->
+        <header class="header">
+            <h1>Avram's Labs For INST377</h1>
+        </header>
+        <div class="container">
+            <!--container-->
+            <div class="left_section box">
+                <!--left inputs-->
+                <h2>Album Names</h2>
+                <ol class="box">
+                    <li>Yeah Yeah Yeahs - Fever To Tell</li>
+                    <li>Underworld - Dubnobasswithmyheadman</li>
+                    <li>Young Fathers - Cocoa Butter</li>
+                    <li>Sleigh Bells - Treats</li>
+                    <li>Hansome Furs - Face Control</li>
+                </ol>
+            </div>
+
+            <div class="right_section box">
+                <!-- right side-->
+                <h2>Image Carousel</h2>
+                <div class="grid">
+                    <img id="slide_1" src="./images/mochi.gif" alt="mochi gif" />
+                    <img id="slide_2" src="./images/mochi.jpg" alt="mochi jpeg picture" />
+                    <img id="slide_3" src="./images/mochi.png" alt="mochi png" />
+                    <img id="slide_4" src="./images/mochi.svg" alt="mochi svg" />
+                </div>
+                <div class="box">
+                    <!-- description box -->
+                    <p>There are four type of files. Gif, jpg, png, and svg.</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            AvramBaicu <a href="https://github.com/AvramBaicu">link</a>
+        </footer>
+    </body>
 </html>
