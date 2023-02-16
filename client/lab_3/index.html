@@ -1,5 +1,63 @@
-<!--
-    Replace this with your working code from Lab 2, and include:
-    - The styles in this folder's `style.css`
-    - The script in script.js, which should be included via a `<script src="script.js" >` call before your closing </body> tag 
--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Avram Baicu's lab</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--wrapper -->
+        <header class="header">
+            <h1>Avram's Labs For INST377</h1>
+        </header>
+        <div class="container">
+            <!--container-->
+            <div class="left_section box">
+                <!--left inputs-->
+                <h2>Album Names</h2>
+                <ol class="box">
+                    <li>Yeah Yeah Yeahs - Fever To Tell</li>
+                    <li>Underworld - Dubnobasswithmyheadman</li>
+                    <li>Young Fathers - Cocoa Butter</li>
+                    <li>Sleigh Bells - Treats</li>
+                    <li>Hansome Furs - Face Control</li>
+                </ol>
+            </div>
+
+            <div class="right_section box">
+                <!-- right side-->
+                <h2>Image Carousel</h2>
+                <div class="carousel">
+                    <button class="prev">prev</button>
+
+                    <div class="slides">
+                        <div class="carousel_item visible"><img id="slide_1" src="./images/Bugatti Chiron SS.jpg"
+                                alt="Buggati" /></div>
+                        <div class="carousel_item hidden"><img id="slide_2" src="./images/Mclaren P1.jpg"
+                                alt="Mclaren" /></div>
+                        <div class="carousel_item hidden"><img id="slide_3" src="./images/Porsche 911 Old School.jpg"
+                                alt="Porsche" /></div>
+                        <div class="carousel_item hidden"><img id="slide_4" src="./images/Mazda RX7.jpg" alt="Mazda" />
+                        </div>
+                        
+                    </div>
+                    <button class="next">next</button>
+                </div>
+                <div class="box">
+                    <!-- description box -->
+                    <p>These are four of my favorite cars.</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            AvramBaicu <a href="https://github.com/AvramBaicu">link</a>
+        </footer>
+        <script src="script.js"></script>
+</body>
+
+</html>
