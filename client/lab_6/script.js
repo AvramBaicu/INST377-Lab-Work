@@ -25,11 +25,11 @@ function getRandomIntInclusive(min,max){
   return Math.floor(Math.random() * (max-min+1) + min);
 }
 
-function injectHTML(){
+function injectHTML(list){
   console.log('fired injectHTML');
   const target = document.querySelector("#restaurant_list");
   target.innerHTML = '';
-  list.array.forEach((item) => {
+  list.forEach((item) => {
     const str = `<li>${item.name}</li>`;
     target.innerHTML += str
   });
@@ -47,8 +47,8 @@ function cutRestaurantList(list){
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
   const filterButton = document.querySelector("#filter_button")
-  const loadDataButton = document.querySelector("#data_load")
-  const generateListButton = document.querySelector("#generate")
+  const loadDataButton = document.querySelector("#data_load");
+  const generateListButton = document.querySelector("#generate");
   // Add a querySelector that targets your filter button here
   const loadAnimation = document.querySelector("#data_load_animation");
   loadAnimation.style.display = "none";
@@ -94,13 +94,16 @@ filterButton.addEventListener('click',(event) => {
  injectHTML(newList);
 })
 
-}
 generateListButton.addEventListener('click', (event)=> {
   console.log('generate new list');
-  const cutRestaurantList = cutRestaurantList(currentList);
-  console.log(restaurantsList)
-  injectHTML(restaurantsList);
+  const restaurantList = cutRestaurantList(currentList);
+  console.log(restaurantList)
+  injectHTML(restaurantList);
 })
+
+}
+
+
 
 /*
   This adds an event listener that fires our main event only once our page elements have loaded
