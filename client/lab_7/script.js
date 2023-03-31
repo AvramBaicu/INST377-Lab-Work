@@ -1,9 +1,4 @@
-/*
-  Hook this script to index.html
-  by adding `<script src="script.js">` just before your closing `</body>` tag
-*/
 
-/* A quick filter that will return something based on a matching input */
 function filterList(list, query) {
     return list.filter((item) =>{
        const lowerCaseName = item.name.toLowerCase();
@@ -11,13 +6,6 @@ function filterList(list, query) {
        return lowerCaseName.includes(lowerCaseQuery);
   
     })
-    /*
-      Using the .filter array method, 
-      return a list that is filtered by comparing the item name in lower case
-      to the query in lower case
-  
-      Ask the TAs if you need help with this
-    */
   }
   function getRandomIntInclusive(min,max){
     min = Math.ceil(min);
@@ -105,12 +93,5 @@ function filterList(list, query) {
     });
   }
   
-  
-  
-  /*
-    This adds an event listener that fires our main event only once our page elements have loaded
-    The use of the async keyword means we can "await" events before continuing in our scripts
-    In this case, we load some data when the form has submitted
-  */
   document.addEventListener('DOMContentLoaded', async () => mainEvent()); // the async keyword means we can make API requests
   
