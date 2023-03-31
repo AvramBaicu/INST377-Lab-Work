@@ -49,58 +49,60 @@ function filterList(list, query) {
     const filterButton = document.querySelector("#filter_button")
     const loadDataButton = document.querySelector("#data_load");
     const generateListButton = document.querySelector("#generate");
-    // Add a querySelector that targets your filter button here
+    const textField = document.querySelector("#resto");
     const loadAnimation = document.querySelector("#data_load_animation");
     loadAnimation.style.display = "none";
-    
+    generateListButton.classList.add("hidden");
+
+    let storedList = [];
     let currentList = []; // this is "scoped" to the main event function
     
     /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
     loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something     
       console.log('Loading data'); 
       loadAnimation.style.display = "inline-block";
-  
-      /*
-        ## GET requests and Javascript
-          We would like to send our GET request so we can control what we do with the results
-          Let's get those form results before sending off our GET request using the Fetch API
       
-        ## Retrieving information from an API
-          The Fetch API is relatively new,
-          and is much more convenient than previous data handling methods.
-          Here we make a basic GET request to the server using the Fetch method to the county
-      */
   
       // Basic GET request - this replaces the form Action
       const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   
       // This changes the response from the GET into data we can use - an "object"
-      currentList = await results.json();
+      storedList = await results.json();
+      if ( storedList.length >0){
+        generateListButton.classList.remove("hidden");
+    }
+
       loadAnimation.style.display = "none";
-      console.table(currentList); 
+      console.table(storedList); 
   
     });
   
-  filterButton.addEventListener('click',(event) => {
-   console.log("clicked FilterButton");
+    filterButton.addEventListener('click', (event) => {
+    console.log("clicked FilterButton");
+    
+    const formData = new FormData(mainForm)
+    const formProps = Object.fromEntries(formData);
+    
+    console.log(formProps);
+    const newList = filterList(currentList, formProps.resto);
+    
+    console.log(newList);
+    injectHTML(newList);
+    });
   
-   const formData = new FormData(mainForm)
-   const formProps = Object.fromEntries(formData);
-  
-   console.log(formProps);
-   const newList = filterList(currentList, formProps.resto);
-  
-   console.log(newList);
-   injectHTML(newList);
-  })
-  
-  generateListButton.addEventListener('click', (event)=> {
-    console.log('generate new list');
-    const restaurantList = cutRestaurantList(currentList);
-    console.log(restaurantList)
-    injectHTML(restaurantList);
-  })
-  
+    generateListButton.addEventListener('click', (event)=> {
+        console.log('generate new list');
+        currentList= cutRestaurantList(storedList);
+        console.log(currentList)
+        injectHTML(currentList);
+    });
+
+    textField.addEventListener("input", (event)=>{
+        console.log('input', event.target.value);
+        const newList = filterList(currentList, event.target.value);
+        console.log(newList);
+        injectHTML(newList);
+    });
   }
   
   
